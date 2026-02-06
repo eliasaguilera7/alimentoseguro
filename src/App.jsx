@@ -634,9 +634,9 @@ const Registrations = () => {
 // --- SECCIÓN CONTACTO ---
 const Contact = () => {
   const staff = [
-    { name: 'Patricia Nuñez', tel: '0984 218 241' },
-    { name: 'Lorena Blasco', tel: '0981 426 827' },
-    { name: 'Ada Valiente', tel: '0981 160 036' }
+    { name: 'Patricia Nuñez', tel: '0984 218 241', wa: '595984218241' },
+    { name: 'Lorena Blasco', tel: '0981 426 827', wa: '595981426827' },
+    { name: 'Ada Valiente', tel: '0981 160 036', wa: '595981160036' }
   ];
 
   return (
@@ -669,15 +669,35 @@ const Contact = () => {
                   <Phone size={32} className="text-green-400" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-black text-xl mb-8 uppercase tracking-widest text-xs opacity-50">Nuestros Especialistas</h4>
+                  <h4 className="text-center font-black text-xl mb-8 uppercase tracking-widest text-xs opacity-50">
+                    Nuestros Especialistas
+                  </h4>
                   <div className="grid grid-cols-1 gap-4">
                     {staff.map((s, i) => (
                       <div
                         key={i}
-                        className="flex justify-between items-center bg-white/5 border border-white/10 px-6 py-4 rounded-[2rem] hover:bg-white/10 transition-all group w-full"
+                        className="bg-white/5 border border-white/10 px-6 py-5 rounded-[2rem] hover:bg-white/10 transition-all group w-full text-center"
                       >
-                        <span className="font-bold text-gray-300 group-hover:text-white transition-colors">{s.name}</span>
-                        <span className="font-black text-lg sm:text-xl tabular-nums tracking-tight whitespace-nowrap" style={{ color: COLORS.green }}>{s.tel}</span>
+                        <div className="font-bold text-gray-300 group-hover:text-white transition-colors leading-snug">
+                          {s.name}
+                        </div>
+                        <div
+                          className="mt-2 font-black text-lg sm:text-xl tabular-nums tracking-tight"
+                          style={{ color: COLORS.green }}
+                        >
+                          {s.tel}
+                        </div>
+
+                        <a
+                          href={`https://wa.me/${s.wa}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl font-black text-xs uppercase tracking-widest text-white shadow-lg hover:brightness-110 active:scale-95 transition-all"
+                          style={{ backgroundColor: COLORS.green }}
+                        >
+                          <Phone size={16} />
+                          WhatsApp
+                        </a>
                       </div>
                     ))}
                   </div>
@@ -861,11 +881,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900 scroll-smooth">
-      {/* Debug banner (remove later) */}
-      <div className="fixed bottom-2 left-2 z-[9999] rounded bg-black/70 px-3 py-1 text-[10px] font-bold text-white">
-        BASE_URL: {import.meta.env.BASE_URL}
-      </div>
-
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       <Hero onCtaClick={setActiveSection} />
       <About />
