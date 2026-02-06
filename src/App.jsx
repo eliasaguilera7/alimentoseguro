@@ -132,9 +132,10 @@ const Hero = ({ onCtaClick }) => (
       <img
         src={`${import.meta.env.BASE_URL}images/hero.png`}
         alt="Consultoría de Calidad Alimentaria"
-        className="w-full h-full object-cover opacity-60"
+        className="w-full h-full object-cover opacity-60" // <-- TRANSPARENCIA del fondo (0 a 100)
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div> 
+      {/* ^^^ Este overlay también oscurece (transparencia del negro: /90 y /40) */}
     </div>
 
     {/* Logo decorativo lado derecho (watermark) */}
@@ -143,7 +144,7 @@ const Hero = ({ onCtaClick }) => (
         src={`${import.meta.env.BASE_URL}images/logoalimentos2.png`}
         alt=""
         aria-hidden="true"
-        className="w-[720px] xl:w-[880px] 2xl:w-[980px] h-auto object-contain opacity-15"
+        className="w-[720px] xl:w-[880px] 2xl:w-[980px] h-auto object-contain opacity-70"
         loading="lazy"
         decoding="async"
       />
