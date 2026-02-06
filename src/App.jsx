@@ -68,7 +68,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
         <div className="flex justify-between items-center h-14 md:h-16">
           <div className="flex items-center cursor-pointer" onClick={() => setActiveSection('inicio')}>
             <img
-              src="/images/logoremoved.png"
+              src={`${import.meta.env.BASE_URL}images/logoremoved.png`}
               alt="Alimento Seguro Consultores"
               className="h-12 md:h-14 w-auto object-contain"
               loading="eager"
@@ -130,7 +130,7 @@ const Hero = ({ onCtaClick }) => (
     {/* Imagen de fondo a pantalla completa */}
     <div className="absolute inset-0 z-0">
       <img
-        src="/images/hero.png"
+        src={`${import.meta.env.BASE_URL}images/hero.png`}
         alt="Consultoría de Calidad Alimentaria"
         className="w-full h-full object-cover opacity-60"
       />
@@ -140,7 +140,7 @@ const Hero = ({ onCtaClick }) => (
     {/* Logo decorativo lado derecho (watermark) */}
     <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden lg:flex items-center pr-2 xl:pr-6">
       <img
-        src="/images/logoalimentos2.png"
+        src={`${import.meta.env.BASE_URL}images/logoalimentos2.png`}
         alt=""
         aria-hidden="true"
         className="w-[720px] xl:w-[880px] 2xl:w-[980px] h-auto object-contain opacity-15"
@@ -256,7 +256,7 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative group rounded-[2rem] overflow-hidden">
               <img
-                src="/images/compromiso1.jpeg"
+                src={`${import.meta.env.BASE_URL}images/compromiso1.jpeg`}
                 alt="Compromiso con la excelencia"
                 className="w-full h-64 md:h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
@@ -266,7 +266,7 @@ const About = () => {
             </div>
             <div className="relative group rounded-[2rem] overflow-hidden">
               <img
-                src="/images/compromiso2.jpeg"
+                src={`${import.meta.env.BASE_URL}images/compromiso2.jpeg`}
                 alt="Compromiso con la excelencia"
                 className="w-full h-64 md:h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
@@ -314,7 +314,7 @@ const FoodSafetyBrief = () => (
           <div className="mt-6 grid grid-cols-2 gap-4">
             <div className="relative group rounded-2xl overflow-hidden">
               <img
-                src="/images/inocuo1.jpeg"
+                src={`${import.meta.env.BASE_URL}images/inocuo1.jpeg`}
                 alt="Buenas prácticas de inocuidad"
                 className="w-full h-36 md:h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
@@ -322,7 +322,7 @@ const FoodSafetyBrief = () => (
             </div>
             <div className="relative group rounded-2xl overflow-hidden">
               <img
-                src="/images/inocuo2.jpeg"
+                src={`${import.meta.env.BASE_URL}images/inocuo2.jpeg`}
                 alt="Controles de inocuidad"
                 className="w-full h-36 md:h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
@@ -330,7 +330,7 @@ const FoodSafetyBrief = () => (
             </div>
             <div className="relative group rounded-2xl overflow-hidden">
               <img
-                src="/images/lavado2.jpeg"
+                src={`${import.meta.env.BASE_URL}images/lavado2.jpeg`}
                 alt="Lavado de superficies"
                 className="w-full h-36 md:h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
@@ -338,7 +338,7 @@ const FoodSafetyBrief = () => (
             </div>
             <div className="relative group rounded-2xl overflow-hidden">
               <img
-                src="/images/lacteos.jpeg"
+                src={`${import.meta.env.BASE_URL}images/lacteos.jpeg`}
                 alt="Control de lácteos"
                 className="w-full h-36 md:h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
@@ -540,7 +540,7 @@ const Training = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative group rounded-2xl overflow-hidden mt-0">
                 <img
-                  src="/images/capacitacion1.jpeg"
+                  src={`${import.meta.env.BASE_URL}images/capacitacion1.jpeg`}
                   alt="Capacitación 1"
                   className="w-full h-40 md:h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -548,7 +548,7 @@ const Training = () => {
               </div>
               <div className="relative group rounded-2xl overflow-hidden mt-12">
                 <img
-                  src="/images/capacitacion2.jpeg"
+                  src={`${import.meta.env.BASE_URL}images/capacitacion2.jpeg`}
                   alt="Capacitación 2"
                   className="w-full h-40 md:h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -556,7 +556,7 @@ const Training = () => {
               </div>
               <div className="relative group rounded-2xl overflow-hidden -mt-12">
                 <img
-                  src="/images/capacitacion3.jpeg"
+                  src={`${import.meta.env.BASE_URL}images/capacitacion3.jpeg`}
                   alt="Capacitación 3"
                   className="w-full h-40 md:h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -564,7 +564,7 @@ const Training = () => {
               </div>
               <div className="relative group rounded-2xl overflow-hidden mt-0">
                 <img
-                  src="/images/capacitacion4.jpeg"
+                  src={`${import.meta.env.BASE_URL}images/capacitacion4.jpeg`}
                   alt="Capacitación 4"
                   className="w-full h-40 md:h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -753,7 +753,7 @@ const Footer = () => {
             {/* Logo en footer */}
             <div className="mb-10">
               <img
-                src="/images/logoremoved.png"
+                src={`${import.meta.env.BASE_URL}images/logoremoved.png`}
                 alt="Alimento Seguro Consultores"
                 className="h-20 w-auto object-contain"
                 loading="lazy"
@@ -835,6 +835,14 @@ const Footer = () => {
 export default function App() {
   const [activeSection, setActiveSection] = useState('inicio');
 
+  // Ensure assets work under GitHub Pages base path (e.g. /alimentoseguro/)
+  const ASSET_BASE = import.meta.env.BASE_URL || '/';
+
+  useEffect(() => {
+    // Helpful to see in DevTools console on GitHub Pages
+    console.log('[App] mounted', { BASE_URL: import.meta.env.BASE_URL, location: window.location.href });
+  }, []);
+
   useEffect(() => {
     const el = document.getElementById(activeSection);
     if (el) {
@@ -853,6 +861,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900 scroll-smooth">
+      {/* Debug banner (remove later) */}
+      <div className="fixed bottom-2 left-2 z-[9999] rounded bg-black/70 px-3 py-1 text-[10px] font-bold text-white">
+        BASE_URL: {import.meta.env.BASE_URL}
+      </div>
+
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       <Hero onCtaClick={setActiveSection} />
       <About />
