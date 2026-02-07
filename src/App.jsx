@@ -129,18 +129,22 @@ const Hero = ({ onCtaClick }) => (
   <section id="inicio" className="relative h-screen w-full flex items-center justify-start overflow-hidden bg-slate-900">
     {/* Imagen de fondo a pantalla completa */}
     <div className="absolute inset-0 z-0">
-      <img
-        src={`${import.meta.env.BASE_URL}images/hero.png`}
+     {/* 
+     
+     */} <img
+        src={`${import.meta.env.BASE_URL}images/hero1.jpeg
+        `}
         alt="Consultoría de Calidad Alimentaria"
-        className="w-full h-full object-cover opacity-60" // <-- TRANSPARENCIA del fondo (0 a 100)
+        className="w-full h-full object-cover opacity-100" // <-- TRANSPARENCIA del fondo (0 a 100)
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div> 
+    {/**/}  <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/18 to-transparent"></div> 
       {/* ^^^ Este overlay también oscurece (transparencia del negro: /90 y /40) */}
     </div>
 
     {/* Logo decorativo lado derecho (watermark) */}
     <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden lg:flex items-center pr-2 xl:pr-6">
-      <img
+     {/*
+        <img
         src={`${import.meta.env.BASE_URL}images/logoalimentos2.png`}
         alt=""
         aria-hidden="true"
@@ -148,6 +152,7 @@ const Hero = ({ onCtaClick }) => (
         loading="lazy"
         decoding="async"
       />
+      */}
     </div>
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-44 md:pt-32">
@@ -158,8 +163,7 @@ const Hero = ({ onCtaClick }) => (
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-8">
-          Soluciones para la <br />
-          <span style={{ color: COLORS.blue }} className="brightness-125 uppercase tracking-tight">Gestión de Calidad</span>
+          GESTIÓN DE INOCUIDAD  Y CALIDAD DE ALIMENTOS
         </h1>
 
         <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl font-medium">
@@ -356,29 +360,83 @@ const FoodSafetyBrief = () => (
           </div>
         </div>
 
-        <div className="lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {[
-            { title: 'Aseguramiento de la Inocuidad', icon: CheckCircle2, color: COLORS.blue },
-            { title: 'Cumplimiento Normativo', icon: Scale, color: COLORS.green },
-            { title: 'Satisfacción del Cliente', icon: Heart, color: COLORS.orange },
-            { title: 'Procesos Unificados', icon: Settings, color: COLORS.blue },
-            { title: 'Reducción de Riesgos', icon: AlertCircle, color: COLORS.green },
-            { title: 'Trazabilidad Optimizada', icon: Database, color: COLORS.orange },
-          ].map((card, i) => (
-            <div key={i} className="group p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${card.color}20`, color: card.color }}>
-                  <card.icon size={22} />
+        <div className="lg:w-3/5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              {
+                title: 'Inocuidad',
+                icon: CheckCircle2,
+                color: COLORS.blue,
+                desc: 'Garantiza prácticas que minimizan riesgos y aseguran alimentos aptos para el consumo.'
+              },
+              {
+                title: 'Normativo',
+                icon: Scale,
+                color: COLORS.green,
+                desc: 'Cumplimiento actualizado de los requisitos legales y estándares internacionales.'
+              },
+              {
+                title: 'Satisfacción del Cliente',
+                icon: Heart,
+                color: COLORS.orange,
+                desc: 'Mejora la percepción del consumidor mediante productos seguros y procesos confiables.'
+              },
+              {
+                title: 'Procesos Unificados',
+                icon: Settings,
+                color: COLORS.blue,
+                desc: 'Integración ordenada de procedimientos para reducir errores y asegurar consistencia.'
+              },
+              {
+                title: 'Reducción de Riesgos',
+                icon: AlertCircle,
+                color: COLORS.green,
+                desc: 'Identificación y control preventivo de peligros en cada etapa de producción.'
+              },
+              {
+                title: 'Trazabilidad Optimizada',
+                icon: Database,
+                color: COLORS.orange,
+                desc: 'Seguimiento completo desde la materia prima hasta el producto final.'
+              },
+              {
+                title: 'Eficiencia Operacional',
+                icon: Clock,
+                color: COLORS.blue,
+                desc: 'Optimización de tiempos, recursos y costos mediante buenas prácticas.'
+              },
+              {
+                title: 'Mejora Continua',
+                icon: Award,
+                color: COLORS.green,
+                desc: 'Implementación de acciones correctivas y preventivas basadas en auditorías reales.'
+              }
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="group p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${card.color}20`, color: card.color }}
+                  >
+                    <card.icon size={22} />
+                  </div>
+                  <h4 className="font-black text-sm uppercase tracking-widest text-gray-800">
+                    {card.title}
+                  </h4>
                 </div>
-                <h4 className="font-black text-sm uppercase tracking-widest text-gray-800">
-                  {card.title}
-                </h4>
+
+                <p className="mt-4 text-sm text-gray-600 font-medium leading-relaxed">
+                  {card.desc}
+                </p>
               </div>
-              <p className="text-xs text-gray-500 font-medium leading-relaxed">
-                Impacto directo en control, eficiencia y confianza a lo largo de toda la cadena de valor.
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* keep the impact line as-is */}
+       
         </div>
       </div>
     </div>
@@ -409,7 +467,7 @@ const Services = () => {
       desc: 'Revisión sistemática para evaluar el cumplimiento de normas vigentes.',
       items: [
         { text: 'Auditorías Internas', icon: ClipboardCheck },
-        { text: 'Controles Oficiales (RE / BPM)', icon: Scale },
+        { text: 'Controles oficiales: RE / BPM / BPA / Habilitaciones', icon: Scale }, // <-- actualizado
         { text: 'Validación de Sistemas HACCP', icon: ShieldCheck },
         { text: 'Auditorías ISO 22000, BRC, IFS', icon: Award },
         { text: 'Homologación de Proveedores', icon: Truck },
@@ -423,7 +481,8 @@ const Services = () => {
       desc: 'Soluciones efectivas integrándonos como parte de su equipo de trabajo.',
       items: [
         { text: 'Implementación HACCP / FSSC 22000', icon: Settings },
-        { text: 'Gestión de Crisis Alimentarias', icon: AlertCircle },
+        { text: 'Gestión hotelera en Gobernanza / Gestión hotelera en servicios gastronómicos', icon: Building2 },
+        { text: 'Gestión de Crisis Alimentarias', icon: AlertCircle }, // <-- reinsertado y colocado en 3er lugar
         { text: 'Asesoría a Cadenas de Distribución', icon: Building2 },
         { text: 'Estrategias de Reducción de Riesgos', icon: ShieldCheck },
         { text: 'Optimización de Procesos y Costos', icon: Star },
@@ -513,7 +572,10 @@ const Training = () => {
                   <Clock size={24} />
                   <h4 className="font-black text-white uppercase text-xs tracking-widest">Flexibilidad</h4>
                 </div>
-                <p className="text-sm text-blue-100 font-medium leading-relaxed">Nos adaptamos a las fechas y horarios operativos de su empresa.</p>
+                <p className="text-sm text-blue-100 font-medium leading-relaxed">
+                  Nos adaptamos a las fechas y horarios operativos de su empresa, asistiendo in situ en cualquier punto del país
+                  o mediante medios virtuales cuando se requiera.
+                </p>
               </div>
             </div>
 
@@ -580,6 +642,96 @@ const Training = () => {
   );
 };
 
+// --- SECCIÓN CAPACITACIONES & TRABAJO EN TERRENO ---
+const FieldTraining = ({ onCtaClick }) => (
+  <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    {/* Elemento decorativo de fondo */}
+    <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50 -skew-x-12 z-0 pointer-events-none"></div>
+
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-xs uppercase tracking-widest mb-4">
+          <Star size={14} /> Experiencia Real
+        </div>
+        <h2 className="text-3xl md:text-5xl font-black mb-6">
+          Capacitaciones y <br className="hidden md:block" /> <span style={{ color: COLORS.blue }}>Trabajo en Terreno</span>
+        </h2>
+        <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+          No solo enseñamos teoría: <span className="text-gray-900 font-bold">entramos a su cocina y a su planta industrial. </span> 
+          Nuestro acompañamiento "hombro a hombro" garantiza que los estándares de inocuidad se conviertan en hábito.
+        </p>
+      </div>
+
+      {/* Grid Artístico Asimétrico */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 mb-16">
+        {/* Imagen 1: Grande Principal (Ancho) */}
+        <div className="md:col-span-8 h-64 md:h-[450px] relative group rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-100">
+          <img
+            src={`${import.meta.env.BASE_URL}images/nuevo1.jpeg`}
+            alt="Capacitación en planta"
+            className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+          <div className="absolute bottom-6 left-8 text-white">
+            <h3 className="text-xl font-bold">Formación In Situ</h3>
+            <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-shadow">Corrección de procesos en tiempo real.</p>
+          </div>
+        </div>
+
+        {/* Imagen 2: Lateral Superior (Alto) */}
+        <div className="md:col-span-4 h-64 md:h-[450px] relative group rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-100">
+           <img
+            src={`${import.meta.env.BASE_URL}images/nuevo2.jpeg`}
+            alt="Trabajo en equipo"
+            className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+
+        {/* Imagen 3: Lateral Inferior */}
+        <div className="md:col-span-5 h-64 md:h-[350px] relative group rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-100">
+           <img
+            src={`${import.meta.env.BASE_URL}images/nuevo3.jpeg`}
+            alt="Auditoría de procesos"
+            // Se agregó 'object-top' para priorizar la parte superior de la imagen (cabeza instructora)
+            className="h-full w-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+
+         {/* Imagen 4: Grande Inferior */}
+        <div className="md:col-span-7 h-64 md:h-[350px] relative group rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-100">
+           <img
+            src={`${import.meta.env.BASE_URL}images/nuevo4.jpeg`}
+            alt="Resultados visibles"
+            className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+           <div className="absolute bottom-6 left-8 text-white">
+            <h3 className="text-xl font-bold">Cultura de Calidad</h3>
+            <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-shadow">Compromiso compartido por todo el equipo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <button
+          onClick={() => onCtaClick('contacto')}
+          className="group relative flex items-center gap-3 px-12 py-5 rounded-full text-white font-black text-lg shadow-2xl hover:shadow-blue-200/50 hover:scale-105 active:scale-95 transition-all overflow-hidden"
+          style={{ backgroundColor: COLORS.blue }}
+        >
+          <span className="relative z-10">Agendar Visita Técnica</span>
+          <ChevronRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
+          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        </button>
+      </div>
+    </div>
+  </section>
+);
+
 // --- SECCIÓN REGISTROS ---
 const Registrations = () => {
   return (
@@ -615,7 +767,7 @@ const Registrations = () => {
                   <h4 className="font-black text-xl mb-6" style={{ color: COLORS.blue }}>Gestión DINAVISA / INAN</h4>
                   <p className="text-gray-600 mb-8 leading-relaxed font-medium text-sm">Realizamos el seguimiento riguroso de cada expediente hasta la concesión definitiva de los documentos legales.</p>
                   <div className="flex flex-wrap gap-3">
-                    {['DINAVISA', 'SENACSA', 'MSP y BS', 'INAN'].map((tag, i) => (
+                    {['DINAVISA', 'INAN'].map((tag, i) => ( // eliminado 'SENACSA' y 'MSP y BS'
                       <span key={i} className="px-4 py-2 rounded-xl bg-gray-50 text-[10px] font-black uppercase tracking-widest text-gray-500 border border-gray-100">{tag}</span>
                     ))}
                   </div>
@@ -655,22 +807,10 @@ const Contact = () => {
             </p>
 
             <div className="space-y-12">
-              <div className="flex items-start gap-8">
-                <div className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center shrink-0 border border-white/10 shadow-inner">
-                  <MapPin size={32} className="text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="font-black text-xl mb-2">Dirección Central</h4>
-                  <p className="text-gray-400 font-medium">Cassianoff 527 esquina Lillo, Asunción, Paraguay</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-8">
-                <div className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center shrink-0 border border-white/10 shadow-inner">
-                  <Phone size={32} className="text-green-400" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-center font-black text-xl mb-8 uppercase tracking-widest text-xs opacity-50">
+              {/* Bloque “Nuestros Especialistas” centrado y sin ícono lateral */}
+              <div className="flex items-start justify-center">
+                <div className="flex-1 max-w-xl mx-auto text-center">
+                  <h4 className="font-black text-xl mb-8 uppercase tracking-widest text-xs opacity-50">
                     Nuestros Especialistas
                   </h4>
                   <div className="grid grid-cols-1 gap-4">
@@ -818,13 +958,6 @@ const Footer = () => {
                 <li><button onClick={() => scrollToId('contacto')} className="hover:text-white transition-colors flex items-center gap-2 group"><ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" /> Contacto</button></li>
               </ul>
             </div>
-            <div>
-              <h4 className="text-white font-black text-xs uppercase tracking-[0.5em] mb-10 opacity-30">Asunción</h4>
-              <p className="text-sm font-bold text-gray-400 leading-relaxed uppercase tracking-widest italic">
-                  Cassianoff 527 esq. Lillo<br/>
-                  Paraguay
-              </p>
-            </div>
           </div>
         </div>
         <div className="mt-16">
@@ -888,6 +1021,7 @@ export default function App() {
       <FoodSafetyBrief />
       <Services />
       <Training />
+      <FieldTraining onCtaClick={setActiveSection} />
       <Registrations />
       <Contact />
       <Footer />
