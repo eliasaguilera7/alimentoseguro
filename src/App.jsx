@@ -33,7 +33,7 @@ import {
 
 // Paleta oficial del logo de Alimento Seguro
 const COLORS = {
-  blue: '#0081C9',      // Azul institucional
+  blue: '#00A6D6',      // Azul turquesa institucional (ajustado al banner)
   green: '#34B334',     // Verde (Inocuidad)
   orange: '#F58220',    // Naranja (Innovación)
   lightGreen: '#8DC63F', // Verde claro
@@ -129,16 +129,14 @@ const Hero = ({ onCtaClick }) => (
   <section id="inicio" className="relative h-screen w-full flex items-center justify-start overflow-hidden bg-slate-900">
     {/* Imagen de fondo a pantalla completa */}
     <div className="absolute inset-0 z-0">
-     {/* 
-     
-     */} <img
-        src={`${import.meta.env.BASE_URL}images/hero1.jpeg
+      <img
+        src={`${import.meta.env.BASE_URL}images/hero1.png
         `}
         alt="Consultoría de Calidad Alimentaria"
-        className="w-full h-full object-cover opacity-100" // <-- TRANSPARENCIA del fondo (0 a 100)
+        // Ajuste de encuadre: prioriza la parte superior para evitar corte arriba
+        className="w-full h-full object-cover object-top lg:object-[center_15%] opacity-100"
       />
-    {/**/}  <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/18 to-transparent"></div> 
-      {/* ^^^ Este overlay también oscurece (transparencia del negro: /90 y /40) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/18 to-transparent"></div>
     </div>
 
     {/* Logo decorativo lado derecho (watermark) */}
