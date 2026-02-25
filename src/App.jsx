@@ -580,7 +580,7 @@ const Training = () => {
             {/* Lista de Módulos */}
             <div className="bg-white p-10 md:p-12 rounded-[3.5rem] shadow-2xl relative text-gray-900">
                 <h3 className="text-2xl font-black mb-8 flex items-center gap-4">
-                  <div className="w-2 h-10 rounded-full" style={{ backgroundColor: COLORS.orange }}></div>
+                  <div className="w-2 h-10 rounded-full" style={{ color: COLORS.orange }}></div>
                   Módulos Destacados
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -790,6 +790,44 @@ const Contact = () => {
     { name: 'Ada Valiente', tel: '0981 160 036', wa: '595981160036' }
   ];
 
+  // Estado para el formulario
+  const [formData, setFormData] = useState({
+    empresa: '',
+    rubro: '',
+    email: '',
+    mensaje: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleWhatsAppSubmit = () => {
+    const { empresa, rubro, email, mensaje } = formData;
+    
+    // Validar que al menos haya un mensaje o empresa
+    if (!empresa && !mensaje) {
+      alert("Por favor complete al menos el nombre de la empresa o el mensaje.");
+      return;
+    }
+
+    // Mensaje sin asteriscos (sin formato Markdown) para evitar que aparezcan caracteres literales
+    const rawMessage =
+      `Hola Alimento Seguro, me gustaría solicitar una consultoría.\n\n` +
+      `Empresa: ${empresa || 'No especificado'}\n` +
+      `Rubro: ${rubro || 'No especificado'}\n` +
+      `Email: ${email || 'No especificado'}\n` +
+      `Mensaje: ${mensaje || 'Sin mensaje adicional'}`;
+
+    // Codificamos todo el texto para que sea válido en una URL
+    const encodedMessage = encodeURIComponent(rawMessage);
+
+    // Número principal para recibir las solicitudes (usando el primero de la lista o uno general)
+    const mainNumber = '595984218241'; 
+    window.open(`https://wa.me/${mainNumber}?text=${encodedMessage}`, '_blank');
+  };
+
   return (
     <section id="contacto" className="py-24 bg-gray-950 text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 via-green-500 to-orange-500"></div>
@@ -854,12 +892,15 @@ const Contact = () => {
                 Analizamos su caso y proyectamos soluciones técnicas inmediatas.
               </p>
             </div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 block ml-4">Empresa</label>
                   <input
                     type="text"
+                    name="empresa"
+                    value={formData.empresa}
+                    onChange={handleChange}
                     className="w-full px-8 py-5 rounded-[2rem] bg-gray-50 border-2 border-transparent focus:border-blue-100 outline-none font-bold"
                     placeholder="Razón Social"
                   />
@@ -868,6 +909,9 @@ const Contact = () => {
                   <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 block ml-4">Rubro</label>
                   <input
                     type="text"
+                    name="rubro"
+                    value={formData.rubro}
+                    onChange={handleChange}
                     className="w-full px-8 py-5 rounded-[2rem] bg-gray-50 border-2 border-transparent focus:border-blue-100 outline-none font-bold"
                     placeholder="Rubro de la empresa"
                   />
@@ -875,13 +919,32 @@ const Contact = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 block ml-4">Email</label>
-                <input type="email" className="w-full px-8 py-5 rounded-[2rem] bg-gray-50 border-2 border-transparent focus:border-blue-100 outline-none font-bold" placeholder="correo@ejemplo.com" />
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-8 py-5 rounded-[2rem] bg-gray-50 border-2 border-transparent focus:border-blue-100 outline-none font-bold" 
+                  placeholder="correo@ejemplo.com" 
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 block ml-4">Mensaje</label>
-                <textarea rows="4" className="w-full px-8 py-6 rounded-[2.5rem] bg-gray-50 border-2 border-transparent focus:border-blue-100 outline-none font-bold resize-none" placeholder="¿En qué podemos ayudarle?"></textarea>
+                <textarea 
+                  rows="4" 
+                  name="mensaje"
+                  value={formData.mensaje}
+                  onChange={handleChange}
+                  className="w-full px-8 py-6 rounded-[2.5rem] bg-gray-50 border-2 border-transparent focus:border-blue-100 outline-none font-bold resize-none" 
+                  placeholder="¿En qué podemos ayudarle?"
+                ></textarea>
               </div>
-              <button type="button" style={{ backgroundColor: COLORS.blue }} className="w-full py-6 rounded-[2.5rem] text-white font-black text-xl shadow-2xl hover:brightness-110 active:scale-95 transition-all uppercase tracking-[0.2em] mt-4">
+              <button 
+                type="button" 
+                onClick={handleWhatsAppSubmit}
+                style={{ backgroundColor: COLORS.blue }} 
+                className="w-full py-6 rounded-[2.5rem] text-white font-black text-xl shadow-2xl hover:brightness-110 active:scale-95 transition-all uppercase tracking-[0.2em] mt-4"
+              >
                 Enviar Solicitud
               </button>
             </form>
